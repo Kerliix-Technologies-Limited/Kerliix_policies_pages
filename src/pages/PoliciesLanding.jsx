@@ -9,8 +9,7 @@ const policySections = {
     { name: "Cookie Policy", link: "/cookies" },
     { name: "Disclaimer", link: "/disclaimer" },
     { name: "End User License Agreement (EULA)", link: "/eula" },
-    { name: "Service Level Agreement (SLA)", link: "/sla" },
-{ name: "Children’s Privacy & Age Restriction Policy", link: "/coppa" },
+    { name: "Children’s Privacy & Age Restriction Policy", link: "/coppa" },
     { name: "Payment & Billing Policy", link: "/billing" },
   ],
 
@@ -48,13 +47,13 @@ export default function PoliciesLanding() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-16 px-6">
+    <div className="min-h-screen flex flex-col items-center py-16 px-6 bg-gray-900">
       {/* Hero Section */}
       <div className="max-w-3xl text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-4">
           Policies & Legal Information
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-white/90">
           Stay informed about Kerliix Technologies’ commitments to safety,
           transparency, and compliance. Explore our policies below.
         </p>
@@ -64,7 +63,7 @@ export default function PoliciesLanding() {
       <div className="w-full max-w-6xl space-y-16">
         {Object.entries(policySections).map(([section, policies]) => (
           <section key={section}>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-2xl font-semibold text-blue-400 mb-6">
               {section}
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
@@ -73,9 +72,9 @@ export default function PoliciesLanding() {
                   key={idx}
                   to={policy.link}
                   aria-label={`View ${policy.name}`}
-                  className="p-6 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg hover:scale-[1.02] transform transition duration-300 bg-white flex items-center justify-center text-center"
+                  className="p-6 rounded-2xl border border-gray-700 shadow-md hover:shadow-lg hover:scale-[1.02] transform transition duration-300 bg-gray-800 flex items-center justify-center text-center"
                 >
-                  <h3 className="text-lg font-medium text-gray-800">
+                  <h3 className="text-lg font-medium text-white/90 hover:text-blue-400 transition duration-300">
                     {policy.name}
                   </h3>
                 </Link>
@@ -86,4 +85,4 @@ export default function PoliciesLanding() {
       </div>
     </div>
   );
-    }
+      }
