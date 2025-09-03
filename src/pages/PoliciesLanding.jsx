@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const policies = [
   { name: "Terms of Service", link: "/terms" },
@@ -15,31 +16,36 @@ const policies = [
 ];
 
 export default function PoliciesLanding() {
+  useEffect(() => {
+    document.title = "Policies & Legal Information – Kerliix Technologies";
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col items-center py-16 px-6">
+    <div className="min-h-screen flex flex-col items-center py-16 px-6 bg-gray-900">
       {/* Hero Section */}
       <div className="max-w-3xl text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Policies & Legal Information
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-300">
           Stay informed about Kerliix Technologies’ commitments to safety,
           transparency, and compliance. Explore our policies below.
         </p>
       </div>
 
       {/* Grid of Policies */}
-      <main className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
+      <main className="grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
         {policies.map((policy, idx) => (
-          <a
+          <Link
             key={idx}
-            href={policy.link}
+            to={policy.link}
+            aria-label={`View ${policy.name}`}
             className="p-6 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg hover:scale-[1.02] transform transition duration-300 bg-white flex items-center justify-center text-center"
           >
             <h2 className="text-xl font-semibold text-gray-800">
               {policy.name}
             </h2>
-          </a>
+          </Link>
         ))}
       </main>
     </div>
