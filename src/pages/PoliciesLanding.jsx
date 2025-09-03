@@ -47,7 +47,7 @@ export default function PoliciesLanding() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-16 px-6 bg-gray-900">
+    <div className="min-h-screen flex flex-col items-center py-16 px-6">
       {/* Hero Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-4">
@@ -72,9 +72,9 @@ export default function PoliciesLanding() {
                   key={idx}
                   to={policy.link}
                   aria-label={`View ${policy.name}`}
-                  className="p-6 rounded-2xl border border-gray-700 shadow-md hover:shadow-lg hover:scale-[1.02] transform transition duration-300 bg-gray-800 flex items-center justify-center text-center"
+                  className="p-6 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg hover:scale-[1.02] transform transition duration-300 bg-white flex items-center justify-center text-center"
                 >
-                  <h3 className="text-lg font-medium text-white/90 hover:text-blue-400 transition duration-300">
+                  <h3 className="text-lg font-medium text-gray-800 hover:text-blue-400 transition duration-300">
                     {policy.name}
                   </h3>
                 </Link>
@@ -85,4 +85,4 @@ export default function PoliciesLanding() {
       </div>
     </div>
   );
-      }
+}
