@@ -63,10 +63,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-blue-900 to-gray-900 border-b border-white/20 text-white px-4 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-gradient-to-br from-blue-900 to-gray-900 border-b border-white/20 text-white px-4 flex items-center">
+        <div className="max-w-7xl mx-auto flex items-center justify-between w-full h-full">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center h-full">
             <Link to="/">
               <img
                 src="https://raw.githubusercontent.com/kerliix/.github/main/company/logo.png"
@@ -77,18 +77,18 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <div className="hidden md:flex items-center space-x-6 text-sm font-medium h-full">
             <Link to="/" className="hover:text-blue-400 transition">Home</Link>
 
             {/* Desktop Policies Dropdown */}
-            <div ref={desktopDropdownRef} className="relative">
+            <div ref={desktopDropdownRef} className="relative h-full">
               <button
                 onClick={() =>
                   setIsDesktopPoliciesOpen((prev) => !prev)
                 }
                 aria-haspopup="true"
                 aria-expanded={isDesktopPoliciesOpen}
-                className="flex items-center gap-1 hover:text-blue-400 transition"
+                className="flex items-center gap-1 hover:text-blue-400 transition h-full"
               >
                 Policies
                 <FiChevronDown
@@ -120,7 +120,7 @@ export default function Navbar() {
           </div>
 
           {/* Right: Search + Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 h-full">
             <button
               onClick={() => setShowSearch((prev) => !prev)}
               className="text-white hover:text-blue-400 focus:outline-none"
