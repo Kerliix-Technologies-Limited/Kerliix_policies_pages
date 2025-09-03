@@ -20,18 +20,45 @@ const policies = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [isPoliciesOpen, setIsPoliciesOpen] = useState(false);
-  const desktopDropdownRef = useRef(null);
+  const [isDesktopPoliciesOpen, setIsDesktopPoliciesOpen] = useState(false);
+  const [isMobilePoliciesOpen, setIsMobilePoliciesOpen] = useState(false);
 
-  // Close desktop dropdown on outside click
+  const desktopDropdownRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+
+  // Close desktop/mobile dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target)) {
-        setIsPoliciesOpen(false);
+      if (
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(event.target)
+      ) {
+        setIsDesktopPoliciesOpen(false);
+      }
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+        setIsMobilePoliciesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close menus on Escape key
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        setIsDesktopPoliciesOpen(false);
+        setIsMobilePoliciesOpen(false);
+        setIsMenuOpen(false);
+        setShowSearch(false);
+      }
+    };
+    document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
   }, []);
 
   return (
@@ -53,26 +80,34 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link to="/" className="hover:text-blue-400 transition">Home</Link>
 
-            {/* Policies Dropdown */}
+            {/* Desktop Policies Dropdown */}
             <div ref={desktopDropdownRef} className="relative">
               <button
-                onClick={() => setIsPoliciesOpen(!isPoliciesOpen)}
+                onClick={() =>
+                  setIsDesktopPoliciesOpen((prev) => !prev)
+                }
+                aria-haspopup="true"
+                aria-expanded={isDesktopPoliciesOpen}
                 className="flex items-center gap-1 hover:text-blue-400 transition"
               >
-                Policies <FiChevronDown />
+                Policies
+                <FiChevronDown
+                  className={`transition-transform duration-300 ${
+                    isDesktopPoliciesOpen ? 'rotate-180' : ''
+                  }`}
+                />
               </button>
 
-              {/* Animated Dropdown */}
               <div
                 className={`absolute top-full left-0 mt-2 w-56 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out
-                  ${isPoliciesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+                  ${isDesktopPoliciesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
               >
                 {policies.map((policy, idx) => (
                   <Link
                     key={idx}
                     to={policy.link}
-                    onClick={() => setIsPoliciesOpen(false)}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition"
+                    onClick={() => setIsDesktopPoliciesOpen(false)}
+                    className="block px-4 py-2 text-sm hover:bg-gray-100/70 transition"
                   >
                     {policy.name}
                   </Link>
@@ -84,7 +119,7 @@ export default function Navbar() {
             <Link to="/contact" className="hover:text-blue-400 transition">Contact</Link>
           </div>
 
-          {/* Right: Search + Mobile Menu */}
+          {/* Right: Search + Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => setShowSearch((prev) => !prev)}
@@ -97,37 +132,54 @@ export default function Navbar() {
             <button
               className="md:hidden text-white hover:text-blue-400 focus:outline-none"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
             >
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu with Slide Animation */}
+        {/* Mobile Menu */}
         <div
+          ref={mobileMenuRef}
           className={`md:hidden mt-2 bg-gradient-to-br from-blue-900 to-gray-900 border-t border-white/20 px-4 py-3 space-y-3 text-sm font-medium overflow-hidden transition-all duration-300 ease-in-out
             ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
         >
-          <Link to="/" onClick={() => setIsMenuOpen(false)} className="block hover:text-blue-400 transition">Home</Link>
+          <Link
+            to="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="block hover:text-blue-400 transition"
+          >
+            Home
+          </Link>
 
-          {/* Policies List for Mobile */}
+          {/* Mobile Policies Collapsible */}
           <div>
             <button
-              onClick={() => setIsPoliciesOpen(!isPoliciesOpen)}
+              onClick={() =>
+                setIsMobilePoliciesOpen((prev) => !prev)
+              }
               className="flex justify-between w-full items-center hover:text-blue-400 transition"
             >
-              Policies <FiChevronDown />
+              Policies
+              <FiChevronDown
+                className={`transition-transform duration-300 ${
+                  isMobilePoliciesOpen ? 'rotate-180' : ''
+                }`}
+              />
             </button>
             <div
               className={`mt-2 pl-4 overflow-hidden transition-all duration-300 ease-in-out
-                ${isPoliciesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+                ${isMobilePoliciesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
             >
               {policies.map((policy, idx) => (
                 <Link
                   key={idx}
                   to={policy.link}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsMobilePoliciesOpen(false);
+                  }}
                   className="block hover:text-blue-400 transition py-1"
                 >
                   {policy.name}
@@ -136,8 +188,20 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link to="/help" onClick={() => setIsMenuOpen(false)} className="block hover:text-blue-400 transition">Help</Link>
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block hover:text-blue-400 transition">Contact</Link>
+          <Link
+            to="/help"
+            onClick={() => setIsMenuOpen(false)}
+            className="block hover:text-blue-400 transition"
+          >
+            Help
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="block hover:text-blue-400 transition"
+          >
+            Contact
+          </Link>
         </div>
       </nav>
 
@@ -145,4 +209,4 @@ export default function Navbar() {
       {showSearch && <SearchBar onClose={() => setShowSearch(false)} />}
     </>
   );
-}
+      }
