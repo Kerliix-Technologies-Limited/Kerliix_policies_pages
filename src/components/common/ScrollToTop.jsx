@@ -1,26 +1,46 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-/**
- * ScrollToTop component for smooth scrolling.
- * Supports both route changes and hash links.
- * Place this inside your Router in App.jsx
- */
+const scrollPositions = {};
+
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
+    // If there's a hash, scroll to the element
     if (hash) {
-      // If there is a hash, scroll to the element with that id
       const element = document.querySelector(hash);
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+      return;
+    }
+
+    // Check if we have a saved scroll position for this page
+    if (scrollPositions[pathname]) {
+      window.scrollTo({ top: scrollPositions[pathname], behavior: "smooth" });
     } else {
-      // Otherwise, scroll to the top of the page
+      // Otherwise, scroll to top
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [pathname, hash]);
+
+    // Save scroll position before navigating away
+    const saveScroll = () => {
+      scrollPositions[pathname] = window.scrollY;
+    };
+
+    window.addEventListener("beforeunload", saveScroll);
+    return () => window.removeEventListener("beforeunload", saveScroll);
+  }, [pathname, hash, key]);
+
+  // Save scroll position when navigating away
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollPositions[pathname] = window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
 
   return null;
 }
