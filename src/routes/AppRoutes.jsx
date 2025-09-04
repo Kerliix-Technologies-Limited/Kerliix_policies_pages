@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import ScrollToTop from '../components/common/ScrollToTop';
 
 import PoliciesLanding from "../pages/PoliciesLanding";
 
@@ -41,6 +42,7 @@ export default function AppRoutes() {
   return (
     <>
       <Toaster position="top-center" />
+      <ScrollToTop /> {/* Added smooth scroll support */}
       <Routes>
         <Route path="/" element={<PoliciesLanding />} />
 
@@ -84,4 +86,4 @@ export default function AppRoutes() {
       </Routes>
     </>
   );
-      }
+          }
