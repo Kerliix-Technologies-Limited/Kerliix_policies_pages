@@ -4,77 +4,179 @@
   <!-- Landing Page -->
   <url>
     <loc>https://policies.kerliix.com/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Individual Policy Pages -->
+  <!-- Core Legal -->
   <url>
     <loc>https://policies.kerliix.com/terms</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://policies.kerliix.com/privacy</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://policies.kerliix.com/refund</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://policies.kerliix.com/cookies</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/aup</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/security</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/gdpr</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/dmca</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/community</loc>
-    <lastmod>2025-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://policies.kerliix.com/accessibility</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://policies.kerliix.com/disclaimer</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/eula</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/sla</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/billing</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/coppa</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/export</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Data & Security -->
+  <url>
+    <loc>https://policies.kerliix.com/security</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/gdpr</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/data-retention</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/disclosure</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/incident-response</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/ai-ethics</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Community & Trust -->
+  <url>
+    <loc>https://policies.kerliix.com/aup</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/community</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/accessibility</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/dmca</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/moderation</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/inclusion</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/transparency</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/content</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Business & Partnerships -->
+  <url>
+    <loc>https://policies.kerliix.com/partnerships</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/opensource</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://policies.kerliix.com/advertising</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
